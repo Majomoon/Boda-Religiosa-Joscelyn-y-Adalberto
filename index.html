@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Invitación Boda Religiosa</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&family=Great+Vibes&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Playfair Display', serif;
+      background: #f9f5f1;
+      color: #3e3e3e;
+      text-align: center;
+    }
+    header {
+      background: #e5dad2;
+      padding: 2em 1em;
+    }
+    h1 {
+      font-family: 'Great Vibes', cursive;
+      font-size: 3em;
+      margin: 0;
+    }
+    h2 {
+      font-size: 1.5em;
+      margin-top: 0.2em;
+    }
+    .timeline {
+      display: flex;
+      justify-content: center;
+      gap: 4em;
+      margin: 3em auto;
+    }
+    .event {
+      max-width: 200px;
+    }
+    .event-icon {
+      font-size: 2.5em;
+      margin-bottom: 0.5em;
+    }
+    .map-link {
+      color: #a67c52;
+      text-decoration: none;
+    }
+    form {
+      background: #fff;
+      max-width: 400px;
+      margin: 3em auto;
+      padding: 2em;
+      border-radius: 12px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    input, select, button {
+      display: block;
+      width: 100%;
+      margin: 1em 0;
+      padding: 0.8em;
+      font-size: 1em;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+    }
+    button {
+      background: #a67c52;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #916b43;
+    }
+    footer {
+      margin-top: 3em;
+      padding-bottom: 2em;
+    }
+    audio {
+      margin-top: 2em;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Daniela & Emiliano</h1>
+    <h2>¡Nos casamos!</h2>
+    <p>2 de agosto de 2025</p>
+  </header>
+
+  <section class="timeline">
+    <div class="event">
+      <div class="event-icon">⛪</div>
+      <strong>Misa - 12:00 p.m.</strong>
+      <p>Parroquia de Nuestra Señora del Carmen</p>
+      <a class="map-link" href="https://g.co/kgs/4pSdQcm?" target="_blank">Ver mapa</a>
+    </div>
+    <div class="event">
+      <div class="event-icon">🎉</div>
+      <strong>Celebración - 5:00 p.m.</strong>
+      <p>Recepción en Villas</p>
+      <a class="map-link" href="https://maps.app.goo.gl/sAM3JdmSF6QHzqRWA" target="_blank">Ver mapa</a>
+    </div>
+  </section>
+
+  <form id="rsvp-form">
+    <h2>Confirma tu asistencia</h2>
+    <label for="nombre">Nombre:</label>
+    <input type="text" id="nombre" name="nombre" required>
+
+    <label for="cantidad">¿Cuántos asistirán?</label>
+    <select id="cantidad" name="cantidad" required>
+      <option value="">Selecciona</option>
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5</option>
+    </select>
+
+    <button type="submit">Confirmar</button>
+    <p id="mensaje"></p>
+  </form>
+
+  <audio controls autoplay loop>
+    <source src="https://res.cloudinary.com/dk-find-out/video/upload/q_80,w_960,f_auto/The_Shire-Lord_of_the_Rings_ftppjw.mp3" type="audio/mpeg">
+    Tu navegador no soporta audio HTML.
+  </audio>
+
+  <footer>
+    <p>Con amor, Daniela & Emiliano</p>
+  </footer>
+
+  <script>
+    document.getElementById('rsvp-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const nombre = document.getElementById('nombre').value.trim();
+      const cantidad = document.getElementById('cantidad').value;
+
+      if (!nombre || !cantidad) {
+        document.getElementById('mensaje').textContent = 'Por favor completa todos los campos.';
+        return;
+      }
+
+      // Aquí podrías conectar con Google Apps Script Web App si quieres guardar los datos
+      document.getElementById('mensaje').textContent = '¡Gracias por confirmar!';
+      this.reset();
+    });
+  </script>
+</body>
+</html>
