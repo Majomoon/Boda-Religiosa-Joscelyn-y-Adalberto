@@ -3,146 +3,123 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Invitación Boda Religiosa</title>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&family=Great+Vibes&display=swap" rel="stylesheet">
+  <title>Invitación a Nuestra Boda</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+
+  <!-- Íconos de Lucide (opcional) -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- Google Fonts para estilos manuscritos y serif -->
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display&display=swap" rel="stylesheet">
+
+  <!-- Música de fondo -->
+  <audio autoplay loop>
+    <source src="ruta-a-tu-audio/TheShire.mp3" type="audio/mpeg">
+  </audio>
+
   <style>
-    body {
-      margin: 0;
-      font-family: 'Playfair Display', serif;
-      background: #f9f5f1;
-      color: #3e3e3e;
-      text-align: center;
-    }
-    header {
-      background: #e5dad2;
-      padding: 2em 1em;
-    }
-    h1 {
-      font-family: 'Great Vibes', cursive;
-      font-size: 3em;
-      margin: 0;
-    }
-    h2 {
-      font-size: 1.5em;
-      margin-top: 0.2em;
-    }
-    .timeline {
-      display: flex;
-      justify-content: center;
-      gap: 4em;
-      margin: 3em auto;
-    }
-    .event {
-      max-width: 200px;
-    }
-    .event-icon {
-      font-size: 2.5em;
-      margin-bottom: 0.5em;
-    }
-    .map-link {
-      color: #a67c52;
-      text-decoration: none;
-    }
-    form {
-      background: #fff;
-      max-width: 400px;
-      margin: 3em auto;
-      padding: 2em;
-      border-radius: 12px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    }
-    input, select, button {
-      display: block;
-      width: 100%;
-      margin: 1em 0;
-      padding: 0.8em;
-      font-size: 1em;
-      border: 1px solid #ccc;
-      border-radius: 8px;
-    }
-    button {
-      background: #a67c52;
-      color: #fff;
-      border: none;
-      cursor: pointer;
-    }
-    button:hover {
-      background: #916b43;
-    }
-    footer {
-      margin-top: 3em;
-      padding-bottom: 2em;
-    }
-    audio {
-      margin-top: 2em;
-    }
+    .manuscrita { font-family: 'Great Vibes', cursive; }
+    .serif { font-family: 'Playfair Display', serif; }
   </style>
 </head>
-<body>
-  <header>
-    <h1>Daniela & Emiliano</h1>
-    <h2>¡Nos casamos!</h2>
-    <p>2 de agosto de 2025</p>
-  </header>
 
-  <section class="timeline">
-    <div class="event">
-      <div class="event-icon">⛪</div>
-      <strong>Misa - 12:00 p.m.</strong>
-      <p>Parroquia de Nuestra Señora del Carmen</p>
-      <a class="map-link" href="https://g.co/kgs/4pSdQcm?" target="_blank">Ver mapa</a>
-    </div>
-    <div class="event">
-      <div class="event-icon">🎉</div>
-      <strong>Celebración - 5:00 p.m.</strong>
-      <p>Recepción en Villas</p>
-      <a class="map-link" href="https://maps.app.goo.gl/sAM3JdmSF6QHzqRWA" target="_blank">Ver mapa</a>
+<body class="bg-white text-gray-800">
+
+  <!-- ENCABEZADO PRINCIPAL -->
+  <section class="text-center py-10">
+    <h1 class="text-4xl md:text-5xl manuscrita text-amber-800">¡Nos Casamos!</h1>
+    <p class="mt-4 serif text-xl">Estás cordialmente invitado a nuestra boda religiosa</p>
+  </section>
+
+  <!-- FECHA, LUGAR Y BOTÓN PARA CALENDARIO -->
+  <section class="text-center py-6">
+    <p class="serif text-lg">📍 <strong>Parroquia de Nuestra Señora del Carmen</strong></p>
+    <p class="text-sm text-gray-600">Tijuana, B.C. | 2 de agosto de 2025 - 12:00 p.m.</p>
+
+    <a href="https://calendar.google.com/calendar/u/0/r/eventedit?text=Boda+Religiosa+de+%5BNombres%5D&dates=20250802T190000Z/20250802T210000Z&details=Nos+casamos%21+Te+esperamos+para+celebrar+la+ceremonia+y+una+mini+reuni%C3%B3n+despu%C3%A9s.&location=Parroquia+de+Nuestra+Se%C3%B1ora+del+Carmen%2C+Tijuana+B.C." 
+       class="inline-block mt-4 px-5 py-2 bg-amber-700 text-white rounded-full text-sm shadow hover:bg-amber-800 transition"
+       target="_blank">
+      Agregar a Google Calendar
+    </a>
+  </section>
+
+  <!-- CONTADOR REGRESIVO -->
+  <section class="py-10 text-center">
+    <h2 class="serif text-xl mb-4">Faltan...</h2>
+    <div id="contador" class="text-3xl font-bold text-amber-700">00 días 00:00:00</div>
+    <!-- Script se incluye más abajo -->
+  </section>
+
+  <!-- TIMELINE DEL EVENTO -->
+  <section class="max-w-md mx-auto py-10 px-4">
+    <div class="space-y-6 border-l-2 border-amber-400 pl-6">
+
+      <!-- MISA -->
+      <div>
+        <div class="flex items-center gap-3">
+          <div class="bg-amber-400 rounded-full h-4 w-4"></div>
+          <h3 class="serif text-lg font-semibold">12:00 p.m. – Misa religiosa</h3>
+        </div>
+        <p class="text-sm text-gray-600 ml-7">Parroquia de Nuestra Señora del Carmen</p>
+      </div>
+
+      <!-- MINI CELEBRACIÓN -->
+      <div>
+        <div class="flex items-center gap-3">
+          <div class="bg-amber-400 rounded-full h-4 w-4"></div>
+          <h3 class="serif text-lg font-semibold">5:00 p.m. – Mini celebración</h3>
+        </div>
+        <p class="text-sm text-gray-600 ml-7">[Lugar de la fiesta] (modifica aquí)</p>
+      </div>
     </div>
   </section>
 
-  <form id="rsvp-form">
-    <h2>Confirma tu asistencia</h2>
-    <label for="nombre">Nombre:</label>
-    <input type="text" id="nombre" name="nombre" required>
+  <!-- FORMULARIO DE CONFIRMACIÓN -->
+  <section class="bg-amber-50 py-10 px-4 text-center">
+    <h2 class="serif text-2xl mb-6">Confirma tu asistencia</h2>
+    <form class="max-w-md mx-auto space-y-4">
+      <!-- Campo Nombre -->
+      <input type="text" placeholder="Tu nombre" class="w-full border border-gray-300 rounded-lg px-4 py-2" required>
 
-    <label for="cantidad">¿Cuántos asistirán?</label>
-    <select id="cantidad" name="cantidad" required>
-      <option value="">Selecciona</option>
-      <option value="1">1</option>
-      <option value="2">2</option>
-      <option value="3">3</option>
-      <option value="4">4</option>
-      <option value="5">5</option>
-    </select>
+      <!-- Campo Cantidad de asistentes -->
+      <select class="w-full border border-gray-300 rounded-lg px-4 py-2" required>
+        <option value="" disabled selected>¿Cuántos asistirán?</option>
+        <option value="1">1 persona</option>
+        <option value="2">2 personas</option>
+        <option value="3">3 personas</option>
+        <option value="4">4 personas</option>
+        <option value="5">5 personas</option>
+      </select>
 
-    <button type="submit">Confirmar</button>
-    <p id="mensaje"></p>
-  </form>
+      <!-- Botón de envío -->
+      <button type="submit" class="bg-amber-700 text-white px-6 py-2 rounded-full shadow hover:bg-amber-800 transition">
+        Confirmar
+      </button>
+    </form>
+  </section>
 
-  <audio controls autoplay loop>
-    <source src="https://res.cloudinary.com/dk-find-out/video/upload/q_80,w_960,f_auto/The_Shire-Lord_of_the_Rings_ftppjw.mp3" type="audio/mpeg">
-    Tu navegador no soporta audio HTML.
-  </audio>
-
-  <footer>
-    <p>Con amor, Daniela & Emiliano</p>
+  <!-- PIE DE PÁGINA -->
+  <footer class="text-center py-6 text-sm text-gray-500">
+    Con cariño, Joscelyn y Adalberto 💛
   </footer>
 
+  <!-- SCRIPT CONTADOR REGRESIVO -->
   <script>
-    document.getElementById('rsvp-form').addEventListener('submit', function(e) {
-      e.preventDefault();
-      const nombre = document.getElementById('nombre').value.trim();
-      const cantidad = document.getElementById('cantidad').value;
+    const evento = new Date("August 2, 2025 12:00:00").getTime();
+    const contador = document.getElementById("contador");
 
-      if (!nombre || !cantidad) {
-        document.getElementById('mensaje').textContent = 'Por favor completa todos los campos.';
-        return;
-      }
+    setInterval(() => {
+      const ahora = new Date().getTime();
+      const diferencia = evento - ahora;
 
-      // Aquí podrías conectar con Google Apps Script Web App si quieres guardar los datos
-      document.getElementById('mensaje').textContent = '¡Gracias por confirmar!';
-      this.reset();
-    });
+      const dias = Math.floor(diferencia / (1000 * 60 * 60 * 24));
+      const horas = Math.floor((diferencia % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutos = Math.floor((diferencia % (1000 * 60 * 60)) / (1000 * 60));
+      const segundos = Math.floor((diferencia % (1000 * 60)) / 1000);
+
+      contador.textContent = `${dias} días ${horas}:${minutos}:${segundos}`;
+    }, 1000);
   </script>
 </body>
 </html>
+
