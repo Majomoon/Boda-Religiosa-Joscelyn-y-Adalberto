@@ -1,133 +1,42 @@
-<!DOCTYPE html>
-<html lang="es">
-
-  <body class="bg-[#FDFBF6] text-gray-800">
+<body class="bg-[#FDFBF6] text-gray-800">
 
   <!-- CONTENEDOR CENTRAL TIPO TARJETA -->
-  <div class="max-w-2xl bg-white rounded-xl shadow-lg mx-auto mt-6 mb-10 p-6">
+  <div class="max-w-2xl bg-white rounded-xl shadow-lg mx-auto mt-10 mb-12 p-6">
 
-  <!-- ENCABEZADO CON IMAGEN Y TÍTULO -->
+    <!-- ENCABEZADO CON IMAGEN Y TÍTULO -->
     <section class="text-center">
-  <img src="encabezado.jpeg" alt="Encabezado" class="w-full rounded-lg mb-4 shadow">
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Invitación a Nuestra Boda</title>
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 
-  <!-- Íconos de Lucide (opcional) -->
-  <script src="https://unpkg.com/lucide@latest"></script>
+      <!-- IMAGEN DE ENCABEZADO -->
+      <img src="encabezado.jpeg" alt="Imagen decorativa" class="w-full max-h-[300px] object-cover rounded-lg mb-4 shadow">
+      <!-- 👆 Cambia la URL por la de tu imagen (ej. de imgur o Google Drive con acceso público) -->
 
-  <!-- Google Fonts para estilos manuscritos y serif -->
-  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display&display=swap" rel="stylesheet">
+      <!-- TÍTULO PRINCIPAL -->
+      <h1 class="text-4xl md:text-5xl manuscrita text-amber-800">¡Nos Casamos!</h1>
+      <p class="mt-4 serif text-xl">Estás cordialmente invitado a nuestra boda religiosa</p>
+    </section>
 
-  <!-- Música de fondo -->
-  <audio autoplay loop>
-    <source src="ruta-a-tu-audio/TheShire.mp3" type="audio/mpeg">
-  </audio>
+    <!-- INFORMACIÓN DEL EVENTO -->
+    <section class="text-center py-6">
+      <p class="serif text-lg">📍 <strong>Parroquia de Nuestra Señora del Carmen</strong></p>
+      <p class="text-sm text-gray-600">Tijuana, B.C. | 2 de agosto de 2025 - 12:00 p.m.</p>
 
-  <style>
-    .manuscrita { font-family: 'Great Vibes', cursive; }
-    .serif { font-family: 'Playfair Display', serif; }
-  </style>
+      <!-- BOTÓN AGREGAR A CALENDARIO -->
+      <a href="https://calendar.google.com/calendar/u/0/r/eventedit?text=Boda+Religiosa+de+%5BNombres%5D&dates=20250802T190000Z/20250802T210000Z&details=Nos+casamos%21+Te+esperamos+para+celebrar+la+ceremonia+y+una+mini+reuni%C3%B3n+despu%C3%A9s.&location=Parroquia+de+Nuestra+Se%C3%B1ora+del+Carmen%2C+Tijuana+B.C." 
+         class="inline-block mt-4 px-5 py-2 bg-amber-700 text-white rounded-full text-sm shadow hover:bg-amber-800 transition"
+         target="_blank">
+        Agregar a Google Calendar
+      </a>
+    </section>
 
+    <!-- AQUÍ PUEDES INSERTAR EL CONTADOR, TIMELINE, FORMULARIO... -->
 
-<body class="bg-white text-gray-800">
+  </div> <!-- FIN DEL CONTENEDOR CENTRAL -->
 
-  <!-- ENCABEZADO PRINCIPAL -->
-  <section class="text-center py-10">
-    <h1 class="text-4xl md:text-5xl manuscrita text-amber-800">¡Nos Casamos!</h1>
-    <p class="mt-4 serif text-xl">Estás cordialmente invitado a nuestra boda religiosa</p>
-  </section>
-
-  <!-- FECHA, LUGAR Y BOTÓN PARA CALENDARIO -->
-  <section class="text-center py-6">
-    <p class="serif text-lg">📍 <strong>Parroquia de Nuestra Señora del Carmen</strong></p>
-    <p class="text-sm text-gray-600">Tijuana, B.C. | 2 de agosto de 2025 - 12:00 p.m.</p>
-
-    <a href="https://calendar.google.com/calendar/u/0/r/eventedit?text=Boda+Religiosa+de+%5BNombres%5D&dates=20250802T190000Z/20250802T210000Z&details=Nos+casamos%21+Te+esperamos+para+celebrar+la+ceremonia+y+una+mini+reuni%C3%B3n+despu%C3%A9s.&location=Parroquia+de+Nuestra+Se%C3%B1ora+del+Carmen%2C+Tijuana+B.C." 
-       class="inline-block mt-4 px-5 py-2 bg-amber-700 text-white rounded-full text-sm shadow hover:bg-amber-800 transition"
-       target="_blank">
-      Agregar a Google Calendar
-    </a>
-  </section>
-
-  <!-- CONTADOR REGRESIVO -->
-  <section class="py-10 text-center">
-    <h2 class="serif text-xl mb-4">Faltan...</h2>
-    <div id="contador" class="text-3xl font-bold text-amber-700">00 días 00:00:00</div>
-    <!-- Script se incluye más abajo -->
-  </section>
-
-  <!-- TIMELINE DEL EVENTO -->
-  <section class="max-w-md mx-auto py-10 px-4">
-    <div class="space-y-6 border-l-2 border-amber-400 pl-6">
-
-      <!-- MISA -->
-      <div>
-        <div class="flex items-center gap-3">
-          <div class="bg-amber-400 rounded-full h-4 w-4"></div>
-          <h3 class="serif text-lg font-semibold">12:00 p.m. – Misa religiosa</h3>
-        </div>
-        <p class="text-sm text-gray-600 ml-7">Parroquia de Nuestra Señora del Carmen</p>
-      </div>
-
-      <!-- MINI CELEBRACIÓN -->
-      <div>
-        <div class="flex items-center gap-3">
-          <div class="bg-amber-400 rounded-full h-4 w-4"></div>
-          <h3 class="serif text-lg font-semibold">5:00 p.m. – Mini celebración</h3>
-        </div>
-        <p class="text-sm text-gray-600 ml-7">[Lugar de la fiesta] (modifica aquí)</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- FORMULARIO DE CONFIRMACIÓN -->
-  <section class="bg-amber-50 py-10 px-4 text-center">
-    <h2 class="serif text-2xl mb-6">Confirma tu asistencia</h2>
-    <form class="max-w-md mx-auto space-y-4">
-      <!-- Campo Nombre -->
-      <input type="text" placeholder="Tu nombre" class="w-full border border-gray-300 rounded-lg px-4 py-2" required>
-
-      <!-- Campo Cantidad de asistentes -->
-      <select class="w-full border border-gray-300 rounded-lg px-4 py-2" required>
-        <option value="" disabled selected>¿Cuántos asistirán?</option>
-        <option value="1">1 persona</option>
-        <option value="2">2 personas</option>
-        <option value="3">3 personas</option>
-        <option value="4">4 personas</option>
-        <option value="5">5 personas</option>
-      </select>
-
-      <!-- Botón de envío -->
-      <button type="submit" class="bg-amber-700 text-white px-6 py-2 rounded-full shadow hover:bg-amber-800 transition">
-        Confirmar
-      </button>
-    </form>
-  </section>
-
-  <!-- PIE DE PÁGINA -->
+  <!-- PIE DE PÁGINA FUERA DEL CONTENEDOR -->
   <footer class="text-center py-6 text-sm text-gray-500">
-    Con cariño, Joscelyn y Adalberto 💛
+    Con cariño, Joscelyn & Adalberto
   </footer>
 
-  <!-- SCRIPT CONTADOR REGRESIVO -->
-  <script>
-    const evento = new Date("August 2, 2025 12:00:00").getTime();
-    const contador = document.getElementById("contador");
-
-    setInterval(() => {
-      const ahora = new Date().getTime();
-      const diferencia = evento - ahora;
-
-      const dias = Math.floor(diferencia / (1000 * 60 * 60 * 24));
-      const horas = Math.floor((diferencia % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-      const minutos = Math.floor((diferencia % (1000 * 60 * 60)) / (1000 * 60));
-      const segundos = Math.floor((diferencia % (1000 * 60)) / 1000);
-
-      contador.textContent = `${dias} días ${horas}:${minutos}:${segundos}`;
-    }, 1000);
-  </script>
+  <!-- AUDIO Y SCRIPTS (música, contador...) -->
+  <!-- ... -->
 </body>
-</html>
-
